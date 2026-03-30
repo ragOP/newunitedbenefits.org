@@ -1,48 +1,32 @@
-import React, { useState, useEffect } from "react";
-//@ts-ignore
-import TagManager from "react-gtm-module";
+import React, { useState, useEffect, useCallback } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import "./styles.scss";
 
 import { scrollTo } from "../utils";
-import { ToastContainer, toast, cssTransition } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Head_bg from "../assets/emily.png";
-import {  Link } from 'react-router-dom';
-import Headline from "../assets/emily.png";
 
-// google tag manager
-
-const tagManagerArgs = {
-  gtmId: "GTM-KZJBC3B",
+// Function to shuffle array in place
+const shuffleArray = (array: string[]) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
 };
 
-// TagManager.initialize(tagManagerArgs);
+const TOAST_MESSAGES = [
+  "Emily A. Rodriguez from Miami, FL just qualified for a $3,900 Food Allowance.",
+  "Michael D. Johnson from Dallas, TX just qualified for a $3,900 Food Allowance.",
+  "Sophia L. Thompson from Los Angeles, CA just qualified for a $3,900 Food Allowance.",
+  "Ethan M. Baker from Chicago, IL just qualified for a $3,900 Food Allowance.",
+  "Ava K. Campbell from Seattle, WA just qualified for a $3,900 Food Allowance.",
+];
+
+shuffleArray(TOAST_MESSAGES);
 
 export default function Tsf() {
-
-  const SlideUp = cssTransition({
-    enter: "toast-enter",
-    exit: "toast-exit",
-  });
-  
-  const messages = [
-    "Emily A. Rodriguez from Miami, FL just qualified for a $3,900 Food Allowance.",
-    "Michael D. Johnson from Dallas, TX just qualified for a $3,900 Food Allowance.",
-    "Sophia L. Thompson from Los Angeles, CA just qualified for a $3,900 Food Allowance.",
-    "Ethan M. Baker from Chicago, IL just qualified for a $3,900 Food Allowance.",
-    "Ava K. Campbell from Seattle, WA just qualified for a $3,900 Food Allowance."
-  ];
-  
-  // Function to shuffle array in place
-  const shuffleArray = (array:any) => {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-  };
-  
-  shuffleArray(messages);
   
   const notify = (message:any) => {
     // Dismiss all existing toasts
@@ -84,7 +68,7 @@ export default function Tsf() {
       const showRandomToast = () => {
         const randomTime = 20000;
         const randomMessage =
-          messages[Math.floor(Math.random() * messages.length)];
+          TOAST_MESSAGES[Math.floor(Math.random() * TOAST_MESSAGES.length)];
         notify(randomMessage);
         return randomTime;
       };
@@ -204,7 +188,7 @@ export default function Tsf() {
   const [no,setNo]=useState("NO, I'M 64 OR YOUNGER")
   
 
-  const stepProcess = () => {
+  const stepProcess = useCallback(() => {
     if (step === "Reviewing Your Answers...") {
       setTimeout(() => {
         setStep("Matching With Best Options...");
@@ -244,21 +228,22 @@ export default function Tsf() {
           });
       }, 1500);
     }
-
-    if (step === "completed") {
-      const startTime: any = new Date();
-      const timer = setInterval(() => {
-        const nowTime: any = new Date();
-        setSecond((180 - Math.round((nowTime - startTime) / 1000)) % 60);
-        setMin(
-          Math.floor((180 - Math.round((nowTime - startTime) / 1000)) / 60)
-        );
-      }, 1000);
-    }
-  };
+  }, [step]);
 
   useEffect(() => {
     stepProcess();
+  }, [stepProcess]);
+
+  useEffect(() => {
+    if (step !== "completed") return;
+    const startTime = Date.now();
+    const id = window.setInterval(() => {
+      const elapsedSec = Math.round((Date.now() - startTime) / 1000);
+      const remaining = 180 - elapsedSec;
+      setSecond(remaining % 60);
+      setMin(Math.floor(remaining / 60));
+    }, 1000);
+    return () => clearInterval(id);
   }, [step]);
 
   const topScroll = (id: any) => {
