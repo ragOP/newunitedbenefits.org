@@ -402,39 +402,18 @@ export default function Abc() {
           </div>
         </div>
       )}
-     <div className="footer2">
-      <p>We represent Medicare Advantage HMO, PPO and PFFS organizations and stand-alone PDP prescription drug plans that are contracted with Medicare. Enrollment depends on the plan’s contract renewal."
-				</p>
-				<p>Not all plans offer all of these benefits. Benefits may vary by carrier and location. Limitations and exclusions may apply.
-				</p>
-				<p>Enrollment in Medicare/Medicare Advantage may be limited to certain times of the year unless you qualify for a Special Enrollment Period
 
-				</p>
-				<p>newunitedbenefits.org is not connected with or endorsed by the US government or Federal Medicare program. This website is a solicitation for insurance and Medicare Advantage, Part D or Medicare supplement insurance comparison services. Medicare supplement insurance is available to those age 65 or older enrolled in Medicare Parts A and B, and in some states to those under age 65 eligible to Medicare due to disability or end stage renal disease.
-				</p>
-				<p>Please contact Medicare.gov, 1–800–MEDICARE, or your local State Health Insurance Program (SHIP) to get information on all of your options.</p>
-        <div className="terms2">
-
-        <Link to="/terms-and-conditions">Terms & Conditions</Link> | 
-        <Link to="/privacy-policy">Privacy Policy</Link>
-        </div>
-        <div>
-        
-        <hr/>
-        </div>
-        <div className="copyright">
-          
-        
-        </div>
-
-<p>Disclaimer: This website is a marketing service and is not an insurance agency, broker, or insurance carrier. We do not offer, sell, or underwrite insurance products directly. The purpose of this website is to connect consumers with licensed insurance agents or insurance providers who may offer Final Expense or related life insurance products. By submitting your information, you agree that a licensed insurance agent or insurance company may contact you by phone call, text message, or email regarding insurance products, including Final Expense coverage. Consent is not a condition of purchase. Coverage availability, benefits, and premiums vary based on age, health, location, and other eligibility factors. Not all applicants will qualify for coverage. Any coverage amounts or benefit examples referenced on this website are illustrative and are not guaranteed. This website is not affiliated with, endorsed by, or operated by any government agency. Insurance products are offered through licensed insurance agents and carriers where permitted by law.
-
-Owned & Operated by Essential Property Holdings
-Mailing Address: 25 Southeast 2nd Avenue STE 550, PMB 63, Miami, FL 33131, United States</p>
-
-
-        {/* <p>{zipCode} </p> */}
-      </div>
+      <footer className="footer-disclaimer">
+        <p>
+          Disclaimer: This website is a marketing service and is not an insurance agency, broker, or insurance carrier. We do not offer, sell, or underwrite insurance products directly. The purpose of this website is to connect consumers with licensed insurance agents or insurance providers who may offer Final Expense or related life insurance products. By submitting your information, you agree that a licensed insurance agent or insurance company may contact you by phone call, text message, or email regarding insurance products, including Final Expense coverage. Consent is not a condition of purchase. Coverage availability, benefits, and premiums vary based on age, health, location, and other eligibility factors. Not all applicants will qualify for coverage. Any coverage amounts or benefit examples referenced on this website are illustrative and are not guaranteed. This website is not affiliated with, endorsed by, or operated by any government agency. Insurance products are offered through licensed insurance agents and carriers where permitted by law.
+        </p>
+        <p className="footer-disclaimer__meta">
+          Owned &amp; Operated by Essential Property Holdings
+        </p>
+        <p className="footer-disclaimer__meta">
+          Mailing Address: 25 Southeast 2nd Avenue STE 550, PMB 63, Miami, FL 33131, United States
+        </p>
+      </footer>
       {/* <ToastContainer
         position="bottom-right"
         autoClose={5000}
