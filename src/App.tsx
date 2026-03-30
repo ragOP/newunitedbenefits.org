@@ -5,6 +5,8 @@ import NotFound from './pages/404';
 import Visits from "./pages/visits";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 import VeryNew2 from './pages/1122'
 import Tsf from './pages/Tsf'
 
@@ -25,6 +27,8 @@ function App() {
           <Route path = "/" element = {<VeryNew2 />} />
           <Route path="/terms-and-conditions" element={<Terms />} />
           <Route path="/privacy-policy" element={<Privacy />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
 
        
 

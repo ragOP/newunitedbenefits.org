@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import "./styles.scss";
 
@@ -322,7 +323,7 @@ export default function Abc() {
   return (
     <div>
      {/* <ToastContainer /> */}
-      <div style={{marginBottom:'4px'}} className="top-sticky-blue-test2" id="top">
+      <div style={{ marginBottom: "4px", textAlign: "center" }} className="top-sticky-blue-test2" id="top">
       Seniors Saving Journal
       </div>
       {step === "process" ? (
@@ -388,6 +389,7 @@ export default function Abc() {
       )}
 
       <footer className="footer-disclaimer">
+      <p className="footer-disclaimer__meta">G2 Licensed Agent :  Gregory K. Teipelz</p>
         <p>
           Disclaimer: This website is a marketing service and is not an insurance agency, broker, or insurance carrier. We do not offer, sell, or underwrite insurance products directly. The purpose of this website is to connect consumers with licensed insurance agents or insurance providers who may offer Final Expense or related life insurance products. By submitting your information, you agree that a licensed insurance agent or insurance company may contact you by phone call, text message, or email regarding insurance products, including Final Expense coverage. Consent is not a condition of purchase. Coverage availability, benefits, and premiums vary based on age, health, location, and other eligibility factors. Not all applicants will qualify for coverage. Any coverage amounts or benefit examples referenced on this website are illustrative and are not guaranteed. This website is not affiliated with, endorsed by, or operated by any government agency. Insurance products are offered through licensed insurance agents and carriers where permitted by law.
         </p>
@@ -397,7 +399,25 @@ export default function Abc() {
         <p className="footer-disclaimer__meta">
           Mailing Address: 25 Southeast 2nd Avenue STE 550, PMB 63, Miami, FL 33131, United States
         </p>
+        <nav className="footer-disclaimer__links" aria-label="Legal and company">
+          <Link to="/terms-and-conditions">Terms of Service</Link>
+          <span className="footer-disclaimer__sep" aria-hidden="true">
+            |
+          </span>
+          <Link to="/privacy-policy">Privacy Policy</Link>
+          <span className="footer-disclaimer__sep" aria-hidden="true">
+            |
+          </span>
+          <Link to="/about">About</Link>
+          <span className="footer-disclaimer__sep" aria-hidden="true">
+            |
+          </span>
+          <Link to="/contact">Contact</Link>
+        </nav>
       </footer>
+    
+
+
       {/* <ToastContainer
         position="bottom-right"
         autoClose={5000}
