@@ -427,7 +427,12 @@ export default function Abc() {
         
         </div>
 
-<p>G2 Licensed Agent :  Gregory K. Teipelz</p>
+<p>Disclaimer: This website is a marketing service and is not an insurance agency, broker, or insurance carrier. We do not offer, sell, or underwrite insurance products directly. The purpose of this website is to connect consumers with licensed insurance agents or insurance providers who may offer Final Expense or related life insurance products. By submitting your information, you agree that a licensed insurance agent or insurance company may contact you by phone call, text message, or email regarding insurance products, including Final Expense coverage. Consent is not a condition of purchase. Coverage availability, benefits, and premiums vary based on age, health, location, and other eligibility factors. Not all applicants will qualify for coverage. Any coverage amounts or benefit examples referenced on this website are illustrative and are not guaranteed. This website is not affiliated with, endorsed by, or operated by any government agency. Insurance products are offered through licensed insurance agents and carriers where permitted by law.
+
+Owned & Operated by Essential Property Holdings
+Mailing Address: 25 Southeast 2nd Avenue STE 550, PMB 63, Miami, FL 33131, United States</p>
+
+
         {/* <p>{zipCode} </p> */}
       </div>
       {/* <ToastContainer
